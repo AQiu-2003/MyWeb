@@ -1,5 +1,7 @@
 # MyWeb
 
+[![MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
+
 ## 简介
 
 这是一个前端基于HTML + CSS + JavaScript，后端基于PHP的课件管理网站demo，也是我大二下学期的Web课程设计作业
@@ -59,7 +61,7 @@ MyWeb
 |  ├─downloadFile.php   // 下载课件
 |  └─getFileList.php    // 获取课件列表
 └─images
-   ├─*.png              // 一些潜入md的图片
+   ├─*.png              // 一些嵌入README的图片
    └─favicon.ico        // 网站图标
 ```
 
@@ -68,3 +70,23 @@ MyWeb
 ![页面逻辑](./images/pageLogi.png)
 ![登录逻辑](./images/loginLogi.png)
 ![注册逻辑](./images/registerLogi.png)
+
+## 演示思路
+
+1. 介绍本机环境，配置mysql与网站目录
+2. 展示网站主页，介绍网站功能
+    1. 先注册一个学生账号
+    2. 登录后，介绍个人中心页面
+    3. 介绍课件中心页面（发现无法上传）
+    4. 登出账号，注册一个教师账号
+    5. 登录后，介绍课件中心页面（发现可以上传）
+3. 介绍用户登录逻辑，cookie数据库等
+4. 介绍一些亮点（动画、响应式布局等）
+5. GitHub
+
+## 页面截图
+
+![主页](./images/screenShot1.png)
+![注册页面](./images/screenShot2.png)
+![文件传输页面](./images/screenShot3.png)
+![个人中心页面](./images/screenShot4.png)
