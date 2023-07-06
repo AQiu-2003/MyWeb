@@ -86,7 +86,7 @@ MyWeb
 
 ## 页面截图
 
-![主页](./images/ScreenShot1.png)
-![注册页面](./images/ScreenShot2.png)
-![文件传输页面](./images/ScreenShot3.png)
-![个人中心页面](./images/ScreenShot4.png)
+![主页](./images/Screenshot1.png)
+![注册页面](./images/Screenshot2.png)
+![文件传输页面](./images/Screenshot3.png)
+![个人中心页面](./images/Screenshot4.png)
