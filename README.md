@@ -21,8 +21,7 @@
 ## 使用方法
 
 1. 将项目文件夹放入服务器的根目录下
-2. 在MySQL中创建名为`myweb`的数据库，执行如下命令创建`user`表
-
+2. 在MySQL中创建名为`MyWeb`的数据库，执行如下命令创建`user`表
 ```sql
 create table user
 (
@@ -35,7 +34,8 @@ create table user
         primary key (id)
 );
 ```
-3. 在浏览器中访问Nginx或者Apache服务器的地址即可
+3. 修改php文件中关于数据库的相关配置（如用户名、密码、数据库名等）
+4. 在浏览器中访问Nginx或者Apache服务器的地址即可
 
 ## 项目结构
 
@@ -86,7 +86,7 @@ MyWeb
 
 ## 页面截图
 
-![主页](./images/screenShot1.png)
-![注册页面](./images/screenShot2.png)
-![文件传输页面](./images/screenShot3.png)
-![个人中心页面](./images/screenShot4.png)
+![主页](./images/ScreenShot1.png)
+![注册页面](./images/ScreenShot2.png)
+![文件传输页面](./images/ScreenShot3.png)
+![个人中心页面](./images/ScreenShot4.png)
