@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>MyWeb - MeMeMe!</title>
+    <link rel="Shortcut Icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/animate.min.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1><a href="index.html">MyWeb</a></h1>
+      <nav>
+        <ul class="nav-items">
+            <li><a href="fileCenter.html">课件中心</a></li>
+            <li><a href="personalCenter.html">个人中心</a></li>
+          <li><a href="#" onclick="logout()">登出</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <h2>修改您的个人信息？</h2>
+      </div>
+      
+      <div class="action-card">
+        <div id="message-card" class="animate__bounceIn" style="display: none;">服务器传回消息</div>
+        <form class="login-form" onsubmit="return interceptFormSubmit('update')">
+            <div class="form-item">
+                <label for="username">用户名</label>
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="form-item">
+                <label for="password">新密码</label>
+                <input type="password" name="password" id="password" placeholder="留空将不修改密码" />
+            </div>
+            <div class="form-item">
+                <label for="password">确认密码</label>
+                <input type="password" name="password2" id="password2" placeholder="留空将不修改密码" />
+            </div>
+            <div class="form-item">
+                <input type="submit" value="登录" />
+            </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 MyWeb - By AQiu</p>
+    </footer>
+
+    <script>
+        const username = document.getElementById('username');
+        var userInfo = getLoginCookie();
+        if(userInfo == null)
+            window.location.href = './login.html';
+        username.value = userInfo.username;
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>MyWeb - Welcome!</title>
+    <link rel="Shortcut Icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="script.js"></script>
+    <script>
+      const loginInfo = getLoginCookie();
+      if (loginInfo) {
+        window.location.href = "./afterLogin.html";
+      }
+    </script>
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1><a href="index.html">MyWeb</a></h1>
+      <nav>
+        <ul class="nav-items">
+          <li><a href="./login.html">登录</a></li>
+          <li><a href="./register.html">注册</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <h2>欢迎来到MyWeb</h2>
+        <p>您可以在右上角选择登录或注册！</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card-item">
+          <div class="card-title">网站功能</div>
+          <div class="card-content">
+            <ul>
+              <li>学生和教师的登录&注册</li>
+              <li>课件上传与下载</li>
+              <li>个人中心信息修改</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-card-item">
+          <div class="card-title">关于我</div>
+          <div class="card-content">
+            <ul>
+              <li>姓名：相开原</li>
+              <li>班级：24班</li>
+              <li>学号：21210420</li>
+              <li>邮箱：
+                <a href="mailto:xiangky2121@mails.jlu.edu.cn">xiangky2121</a>
+              </li>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 MyWeb - By AQiu</p>
+    </footer>
+  </body>
+</html>

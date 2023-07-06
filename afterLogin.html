@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>MyWeb - Hi!</title>
+    <link rel="Shortcut Icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/animate.min.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1><a href="index.html">MyWeb</a></h1>
+      <nav>
+        <ul class="nav-items">
+          <li><a href="fileCenter.html">课件中心</a></li>
+            <li><a href="personalCenter.html">个人中心</a></li>
+          <li><a href="#" onclick="logout()">登出</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <h2 id="title">欢迎来到MyWeb</h2>
+        <p id="sub-title">您可以在右上角选择登录或注册！</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card-item">
+          <div class="card-title">网站功能</div>
+          <div class="card-content">
+            <ul>
+              <li>学生和教师的登录&注册</li>
+              <li>课件上传与下载</li>
+              <li>个人中心信息修改</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-card-item">
+          <div class="card-title">关于我</div>
+          <div class="card-content">
+            <ul>
+              <li>姓名：相开原</li>
+              <li>班级：24班</li>
+              <li>学号：21210420</li>
+              <li>邮箱：
+                <a href="mailto:xiangky2121@mails.jlu.edu.cn">xiangky2121</a>
+              </li>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 MyWeb - By AQiu</p>
+    </footer>
+    <script>
+        // 修改title
+        const loginInfo = getLoginCookie();
+        if (loginInfo) {
+            document.title = "MyWeb - Hi, " + loginInfo.username + "!";
+            document.getElementById("title").innerHTML = "👋你好啊，" + loginInfo.username + "!";
+            if(loginInfo.type == "student")
+                document.getElementById("sub-title").innerHTML = "您是" + loginInfo.type + "，可以在右上角选择课件下载！";
+            else
+                document.getElementById("sub-title").innerHTML = "您是" + loginInfo.type + "，可以在右上角选择课件上传或下载！";
+        } else {
+            window.location.href = "./index.html";
+        }
+    </script>
+  </body>
+</html>

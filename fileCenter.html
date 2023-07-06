@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>MyWeb - MeMeMe!</title>
+    <link rel="Shortcut Icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/animate.min.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <style>
+        #fileTransfer {
+          margin-top: 2rem;
+          font-size: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .uploadMenu {
+          display: block;
+        }
+        #fileViewer {
+          margin-top: 3rem;
+          height: 30rem;
+        }
+        #fileViewer iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      </style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1><a href="index.html">MyWeb</a></h1>
+      <nav>
+        <ul class="nav-items">
+            <li><a href="fileCenter.html">课件中心</a></li>
+            <li><a href="personalCenter.html">个人中心</a></li>
+          <li><a href="#" onclick="logout()">登出</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <h2>在这里上传和下载文件！</h2>
+        <p>如果是学生的话，就只能下载了吧🤔️</p>
+        <p>您可以上传.ppt/.pptx/.key文件</p>
+      </div>
+      
+      <div class="action-card">
+        <div id="message-card" class="animate__bounceIn" style="display: none;">服务器传回消息</div>
+        
+      <div id="fileTransfer">
+        <div class="uploadMenu">
+          <input type="file" id="fileInput" value="选择文件">
+          <button id="uploadButton">上传文件</button>
+        </div>
+        <div id="fileViewer">
+          <iframe src="php/getFileList.php" frameborder="0"></iframe>
+        </div>
+      </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 MyWeb - By AQiu</p>
+    </footer>
+
+    <script>
+        var userInfo = getLoginCookie();
+        if(userInfo == null)
+            window.location.href = './login.html';
+        if(userInfo.type == 'student') {
+            document.getElementsByClassName('uploadMenu')[0].style.display = 'none';
+            document.querySelector("p:last-child").style.display = 'none';
+        }
+
+    </script>
+    <script>
+        // 当上传按钮点击时触发
+        document.getElementById('uploadButton').addEventListener('click', function() {
+          var fileInput = document.getElementById('fileInput');
+          var file = fileInput.files[0]; // 获取选择的文件
+    
+          if (file) {
+            var formData = new FormData();
+            formData.append('file', file); // 创建一个表单数据对象，将文件添加到其中
+    
+            // 发送POST请求到后端
+            fetch('php/uploadFile.php', {
+              method: 'POST',
+              body: formData
+            })
+            .then(function(response) {
+              if (response.ok) {
+                messageCard('上传成功！', 'success');
+                // 刷新文件列表
+                document.getElementById('fileViewer').innerHTML = '<iframe src="php/getFileList.php" frameborder="0"></iframe>';
+                setTimeout(function() {
+                  hideMessageCard();
+                }, 2000);
+              } else {
+                messageCard('上传失败！请检查文件格式！');
+              }
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
+          }
+        });
+      </script>
+  </body>
+</html>
