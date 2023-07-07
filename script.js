@@ -135,7 +135,7 @@ function handleLogin() {
           window.location.href = "afterLogin.html";
         }, 1000);
       } else {
-        messageCard(res);
+        messageCard("用户名或密码错误😢");
       }
     }
   };
